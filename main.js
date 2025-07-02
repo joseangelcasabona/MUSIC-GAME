@@ -15,6 +15,30 @@ const colores = ['#FF6B6B', '#6BCB77', '#4D96FF', '#FFD93D', '#C77DFF']
 
 let cartaActual = null
 
+function showPopup(message) {
+  const popup = document.createElement('div')
+  popup.textContent = message
+  popup.style.position = 'fixed'
+  popup.style.top = '50%'
+  popup.style.left = '50%'
+  popup.style.transform = 'translate(-50%, -50%)'
+  popup.style.background = '#000'
+  popup.style.color = '#fff'
+  popup.style.padding = '1rem 2rem'
+  popup.style.borderRadius = '10px'
+  popup.style.boxShadow = '0 0 20px rgba(0,0,0,0.4)'
+  popup.style.zIndex = '9999'
+  popup.style.opacity = '0'
+  popup.style.transition = 'opacity 0.4s ease'
+
+  document.body.appendChild(popup)
+  setTimeout(() => (popup.style.opacity = '1'), 50)
+  setTimeout(() => {
+    popup.style.opacity = '0'
+    setTimeout(() => popup.remove(), 400)
+  }, 2000)
+}
+
 async function actualizarTablaJugadas() {
   const { data, error } = await supabase
     .from('canciones')
@@ -33,8 +57,8 @@ async function actualizarTablaJugadas() {
           </div>
           <div class="back">
             <div class="song">${cancion.nombre_cancion}</div>
-            <div class="year">${cancion.año}</div>
             <div class="artist">${cancion.artista}</div>
+            <div class="year">${cancion.año}</div>
           </div>
         </div>
       `
@@ -58,7 +82,7 @@ btn.addEventListener('click', async () => {
     .eq('jugado', false)
 
   if (error || data.length === 0) {
-    alert('No hay más cartas disponibles')
+    showPopup('No hay más cartas disponibles')
     return
   }
 
@@ -107,13 +131,13 @@ resetBtn.addEventListener('click', async () => {
     .neq('jugado', false)
 
   if (!error) {
-    alert('Juego reiniciado. Todas las cartas están disponibles.')
+    showPopup('Juego reiniciado. Todas las cartas están disponibles.')
     carta.style.display = 'none'
     carta.classList.remove('rotated')
     cartaActual = null
     actualizarTablaJugadas()
   } else {
-    alert('Hubo un error al reiniciar.')
+    showPopup('Hubo un error al reiniciar.')
   }
 })
 
