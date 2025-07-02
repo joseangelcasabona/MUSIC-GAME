@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+button {
+  background-color: #8a8a8a;
+  color: #fff;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.grid-card {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    box-sizing: border-box;
+}
+
+.grid-card.rotated .inner {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px solid #000;
+    padding: 15px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.front {
+    background-color: #fff;
+}
+
+.back {
+    background-color: #f4f4f4;
+    transform: rotateY(180deg);
+}
+
+.song {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.artist{
+    font-size: 16px;
+    margin: 3px 0;
+}
+
+.year {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.back img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}

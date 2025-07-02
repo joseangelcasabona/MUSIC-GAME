@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Configurar nueva partida</title>
+    <link rel="stylesheet" href="../css/general.css">
+</head>
+
+<body>
+    <h1>NUEVA PARTIDA</h1>
+
+    <form id="formNuevaPartida">
+        <label for="numJugadores">Número de jugadores (2 a 8):</label><br>
+        <input type="number" id="numJugadores" name="numJugadores" min="2" max="8" required><br>
+
+        <div class="jugadores" id="inputsJugadores"></div>
+
+        <button type="submit">COMENZAR PARTIDA</button>
+    </form>
+
+    <a href="../index.html">
+        <button type="submit">VOLVER AL INICIO</button>
+    </a>
+
+    <script type="module" src="../js/aniadirJugadores.js"></script>
+</body>
+
+</html>

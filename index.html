@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carta Aleatoria</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <meta charset="UTF-8">
+  <title>JITSTER</title>
+  <link rel="stylesheet" href="css/general.css">
+  <script type="module" src="js/main.js"></script>
 </head>
+
 <body>
-  <h1>JITSTER</h1>
-  <div class="card" id="carta">
-    <div class="inner" id="inner">
-      <div class="front">
-        <img id="qr" src="" alt="QR" />
-      </div>
-      <div class="back">
-        <div class="song" id="titulo"></div>
-        <div class="year" id="año"></div>
-        <div class="artist" id="artista"></div>
-      </div>
-    </div>
+  <div class="contenedor">
+    <h1>JITSTER</h1>
+    <a href="accionesPrincipales/nueva_partida.html">
+      <button type="submit">NUEVA PARTIDA</button>
+    </a>
+
+    <a href="accionesPrincipales/unirse_partida.html">
+      <button type="submit">UNIRSE A PARTIDA</button>
+    </a>
+
+    <button id="btnReset" type="submit">RESETEAR PARTIDA</button>
+
+    <a href="accionesPrincipales/ver_coleccion.html">
+      <button type="submit">VER COLECCIÓN</button>
+    </a>
   </div>
-
-  <button id="btn">Siguiente carta</button>
-  <button id="reset">Resetear juego</button>
-
-  <br />
-  <h1>CARTAS JUGADAS</h1>
-  <div class="grid" id="gridJugadas"></div>
-
-  <script type="module" src="main.js"></script>
 </body>
+
 </html>
