@@ -75,7 +75,7 @@
     const { data, error } = await supabase
       .from('canciones')
       .select('*')
-      .order('fecha_creado', { ascending: false })
+      .order('nombre_cancion', { ascending: true })
 
     if (error) {
       console.error('Error cargando canciones:', error)
@@ -94,6 +94,7 @@
               <span>${cancion.artista}</span>
               <span>${cancion.año}</span>
               <span>${cancion.genero}</span>
+              <span>${cancion.jugado}</span>
             </div>
           </div>
         `
